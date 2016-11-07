@@ -1,15 +1,17 @@
 <html>
     <head>
         <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+        <script src="js/helper.js"></script>
     </head>
     <body>
         <script>
+            console.log(getUrlParameter('state'), getUrlParameter('code'));
             $.ajax({
                 url: "https://api.sandbox.ebay.com/identity/v1/oauth2/token",
                 type: "POST",
                 data: {
                     grant_type: 'authorization_code',
-                    code = <code from ebay>,
+                    code = getUrlParameter('state'),
                     redirect_uri = 'Tania_Papazafei-TaniaPap-Listin-nuhlzm'
                 },
                 beforeSend: function(xhr){
