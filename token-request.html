@@ -9,8 +9,8 @@
                         
             console.log(getUrlParameter('state'), getUrlParameter('code'));
             $.ajax({
-                url: "https://api.sandbox.ebay.com/identity/v1/oauth2/token",
-                type: "POST",
+                url: 'https://api.sandbox.ebay.com/identity/v1/oauth2/token',
+                method: 'POST',
                 dataType: 'jsonp',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
@@ -21,10 +21,10 @@
                     code : getUrlParameter('code'),
                     redirect_uri : 'Tania_Papazafei-TaniaPap-Listin-nuhlzm'
                 },
-                /* beforeSend: function(xhr){
+                beforeSend: function(xhr){
                     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                     xhr.setRequestHeader('Authorization', 'Basic ' + window.btoa('TaniaPap-Listings-PRD-5bffbb2e5-668519d8:PRD-bffbb2e5c479-0261-440a-8af8-aa48'));
-                },*/
+                },
                 success: function(data) { console.log(data); }
             });
         </script>
