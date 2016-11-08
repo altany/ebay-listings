@@ -11,9 +11,10 @@
             $.ajax({
                 url: "https://api.sandbox.ebay.com/identity/v1/oauth2/token",
                 type: "POST",
+                dataType: 'jsonp',
                 data: {
                     grant_type: 'authorization_code',
-                    code : getUrlParameter('state'),
+                    code : getUrlParameter('code'),
                     redirect_uri : 'Tania_Papazafei-TaniaPap-Listin-nuhlzm'
                 },
                 beforeSend: function(xhr){
