@@ -7,20 +7,33 @@
         <script>
                         
             console.log(getUrlParameter('state'), getUrlParameter('code'));
-            $.ajax({
-                url: "https://api.sandbox.ebay.com/identity/v1/oauth2/token",
-                type: "POST",
-                data: {
-                    grant_type: 'authorization_code',
-                    code : getUrlParameter('state'),
-                    redirect_uri : 'Tania_Papazafei-TaniaPap-Listin-nuhlzm'
-                },
-                beforeSend: function(xhr){
-                    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-                    xhr.setRequestHeader('Authorization', 'Basic ' + window.btoa('TaniaPap-Listings-PRD-5bffbb2e5-668519d8:PRD-bffbb2e5c479-0261-440a-8af8-aa48'));
-                },
-                success: function(data) { console.log(data); }
-            });
+           	$.ajax({
+
+			   // The 'type' property sets the HTTP method.
+			   type: 'POST',
+
+			   // The URL to make the request to.
+			   url: "https://api.sandbox.ebay.com/identity/v1/oauth2/token",
+			   contentType: 'application/x-www-form-urlencoded',
+
+				data: {
+					grant_type:authorization_code,
+					code: getUrlParameter('code'),
+					redirect_uri: 'Tania_Papazafei-TaniaPap-Listin-nuhlzm'
+				},
+			   headers: {
+					// Set any custom headers here.
+				  'Authorization': 'Basic ' + window.btoa('TaniaPap-Listings-PRD-5bffbb2e5-668519d8:PRD-bffbb2e5c479-0261-440a-8af8-aa48')
+			  },
+
+			  success: function(data) {
+				console.log(data);
+			  },
+
+			  error: function(err) {
+				console.log('Error:', err);
+			  }
+			});
         </script>
     </body>
 </html>
